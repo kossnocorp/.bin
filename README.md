@@ -14,7 +14,58 @@ hello_world
 #=> Hello world!
 ```
 
-## Example of usage
+## Using symlinks
+
+Looking for easy way to add bin's into PATH?
+
+``` sh
+ln -s $(pwd)/bin/coffee ~/.bin/rcoffee
+chmod +x ~/.bin/rcoffee
+rcoffee
+#=> coffee>
+```
+
+## We need go deeper
+
+Let's create script for making symlinks (`~/.bin/binl`):
+
+``` ruby
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'main'
+
+Main {
+  def run
+    path     = ARGV[0]
+    bin_name = ARGV[1] || ARGV[0].match(/([^\/]+)$/)[1]
+    bin_path = "~/.bin/#{bin_name}"
+    
+    `ln -s $(pwd)/#{path} #{bin_path}`
+    `chmod +x #{bin_path}`
+    
+    puts "Done, now you can run #{bin_name}"
+  end
+}
+```
+
+Now you can:
+
+``` sh
+binl ./bin/coffee
+which coffee
+#=> /Users/koss/.bin/coffee
+```
+
+... or:
+
+``` sh
+binl ./bin/coffee coffee_redux
+which coffee_redux
+#=> /Users/koss/.bin/coffee_redux
+```
+
+## Advanced example of usage
 
 Like pomodoro technique? Awesome, me too. Let's build own pomodoro timer.
 
