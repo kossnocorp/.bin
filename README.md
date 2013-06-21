@@ -25,7 +25,7 @@ rcoffee
 #=> coffee>
 ```
 
-## We need go deeper
+## We need to go deeper
 
 Let's create script for making symlinks (`~/.bin/binl`):
 
@@ -67,7 +67,7 @@ which coffee_redux
 
 ## Advanced example of usage
 
-Like pomodoro technique? Awesome, me too. Let's build own pomodoro timer.
+Like pomodoro technique? Awesome, me too. Let's build our own pomodoro timer.
 
 ### Preparing
 
@@ -122,7 +122,7 @@ Main {
 
 ### Improve it
 
-Now things goes compicated:
+Now things get compicated:
 
 ``` ruby
 #!/usr/bin/env ruby
@@ -183,7 +183,7 @@ Main {
 
 ### Done.
 
-Now you have to go and done some awesome work using brand new tool.
+Now you have to go and do some awesome work using brand new tool.
 
 
 ## License
